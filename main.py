@@ -8,13 +8,15 @@ def main():
 
 	#For the new file, get header data in dict
 	headerRow = newFileData[0]
-	getHeaderColumnNumbers(headerRow)
-
+	headerDict = getHeaderColumnNumbers(headerRow)
+	#Remove the header row from the top of the list
+	newFileData.pop(0)
 
 def getHeaderColumnNumbers(headerRow):
 	global headerRowColumnNumDict
 	for index,column in enumerate(headerRow):
 		headerRowColumnNumDict[column] = index
+	return(headerRowColumnNumDict)
 
 
 if __name__ == "__main__":
